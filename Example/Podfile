@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'FastComponent_Example' do
+  pod 'FastComponent', :path => '../'
+
+  target 'FastComponent_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
