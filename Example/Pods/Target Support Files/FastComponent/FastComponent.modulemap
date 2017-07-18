@@ -1,0 +1,6 @@
+framework module FastComponent {
+  umbrella header "FastComponent-umbrella.h"
+
+  export *
+  module * { export * }
+}

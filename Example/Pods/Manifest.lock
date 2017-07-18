@@ -1,0 +1,16 @@
+PODS:
+  - FastComponent (0.1.0)
+
+DEPENDENCIES:
+  - FastComponent (from `../`)
+
+EXTERNAL SOURCES:
+  FastComponent:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FastComponent: 1ddd3a9f9df881da718cf6b721b675f4499d7ff8
+
+PODFILE CHECKSUM: e8f2ae192811e3fee29eeacec1ca9ca473dc1bb3
+
+COCOAPODS: 1.2.0.beta.3

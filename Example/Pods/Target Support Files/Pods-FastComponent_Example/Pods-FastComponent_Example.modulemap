@@ -1,0 +1,6 @@
+framework module Pods_FastComponent_Example {
+  umbrella header "Pods-FastComponent_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
