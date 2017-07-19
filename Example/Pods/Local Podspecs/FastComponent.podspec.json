@@ -1,8 +1,8 @@
 {
   "name": "FastComponent",
   "version": "0.1.0",
-  "summary": "A short description of FastComponent.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "一个快速开发iOSApp的组件库.",
+  "description": "一个快速开发iOSApp的组件库. 多种框架集成",
   "homepage": "https://github.com/Rdxer/FastComponent",
   "license": {
     "type": "MIT",
@@ -18,5 +18,74 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "FastComponent/Classes/**/*"
+  "subspecs": [
+    {
+      "name": "Base",
+      "dependencies": {
+        "Then": [
+
+        ],
+        "Localize-Swift": [
+
+        ],
+        "XXLogger": [
+
+        ]
+      }
+    },
+    {
+      "name": "UIKitEx",
+      "source_files": "UIKitEx/**/*.swift",
+      "dependencies": {
+        "Material": [
+
+        ],
+        "FastComponent/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "FoundationEx",
+      "source_files": "FoundationEx/**/*.swift",
+      "dependencies": {
+        "SwiftyJSON": [
+
+        ],
+        "AsyncSwift": [
+
+        ],
+        "FastComponent/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "UICustomEx",
+      "source_files": "UICustomEx/**/*.swift",
+      "dependencies": {
+        "FastComponent/UIKitEx": [
+
+        ],
+        "Eureka": [
+
+        ],
+        "FastComponent/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "Component",
+      "source_files": "Component/**/*.swift",
+      "dependencies": {
+        "FastComponent/UIKitEx": [
+
+        ],
+        "FastComponent/Base": [
+
+        ]
+      }
+    }
+  ]
 }

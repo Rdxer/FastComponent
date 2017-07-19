@@ -1,16 +1,56 @@
 PODS:
-  - FastComponent (0.1.0)
+  - AsyncSwift (2.0.1)
+  - Eureka (3.0.0)
+  - FastComponent/Base (0.1.0):
+    - Localize-Swift
+    - Then
+    - XXLogger
+  - FastComponent/Component (0.1.0):
+    - FastComponent/Base
+    - FastComponent/UIKitEx
+  - FastComponent/FoundationEx (0.1.0):
+    - AsyncSwift
+    - FastComponent/Base
+    - SwiftyJSON
+  - FastComponent/UICustomEx (0.1.0):
+    - Eureka
+    - FastComponent/Base
+    - FastComponent/UIKitEx
+  - FastComponent/UIKitEx (0.1.0):
+    - FastComponent/Base
+    - Material
+  - Localize-Swift (1.7.1)
+  - Material (2.6.3):
+    - Material/Core (= 2.6.3)
+  - Material/Core (2.6.3)
+  - SwiftyJSON (3.1.4)
+  - Then (2.1.0)
+  - XXLogger (1.0.0)
 
 DEPENDENCIES:
-  - FastComponent (from `../`)
+  - AsyncSwift
+  - FastComponent/Component (from `../`)
+  - FastComponent/FoundationEx (from `../`)
+  - FastComponent/UICustomEx (from `../`)
+  - FastComponent/UIKitEx (from `../`)
+  - Localize-Swift
+  - Then
+  - XXLogger
 
 EXTERNAL SOURCES:
   FastComponent:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FastComponent: 1ddd3a9f9df881da718cf6b721b675f4499d7ff8
+  AsyncSwift: 632138e42ead868b53c745fcde9bf733ce1527ad
+  Eureka: f36fd440c3ebb7bfea0a4fbe6f16a05f1cb35906
+  FastComponent: 3d2d7e26aad1ace56b2874c916850d30ad2e2067
+  Localize-Swift: 6cabc1087c0e910e77bfa87c2ed3f65c80c0b2df
+  Material: af607a7ec0e9978ef85cf189a3d8ceeeb650400f
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  Then: 8496793c8fcac95482b943909b440724c7d8d82c
+  XXLogger: 0e9a933fc07000d1a2ca2f1c8c662449b85c4ca6
 
-PODFILE CHECKSUM: e8f2ae192811e3fee29eeacec1ca9ca473dc1bb3
+PODFILE CHECKSUM: a5fcb70bae4e0ce68d6ac07bcf64d55d84cdc23a
 
 COCOAPODS: 1.2.0.beta.3

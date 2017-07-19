@@ -1,8 +1,16 @@
 use_frameworks!
 
 target 'FastComponent_Example' do
-  pod 'FastComponent', :path => '../'
+    
+  pod 'FastComponent', :subspecs => ['UIKitEx', 'FoundationEx','UICustomEx','Component'],:path => '../'
 
+  pod 'XXLogger'
+  pod 'Then'
+  pod 'XXLogger'
+  pod 'AsyncSwift'
+  pod 'Localize-Swift'
+
+  
   target 'FastComponent_Tests' do
     inherit! :search_paths
 

@@ -89,10 +89,24 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/AsyncSwift/Async.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Eureka/Eureka.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FastComponent/FastComponent.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Localize-Swift/Localize_Swift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Material/Material.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Then/Then.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/XXLogger/XXLogger.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/AsyncSwift/Async.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Eureka/Eureka.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FastComponent/FastComponent.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Localize-Swift/Localize_Swift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Material/Material.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Then/Then.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/XXLogger/XXLogger.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
