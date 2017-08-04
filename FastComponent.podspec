@@ -25,8 +25,8 @@ Pod::Spec.new do |s|
   s.subspec 'UIKitEx' do |ss|
     ss.source_files = 'UIKitEx/**/*.swift'
     ss.dependency 'Material'
-
-    ss.dependency 'FastComponent/Base'
+    # ss.dependency 'FastComponent/Base'
+    ss.dependency 'Then'
   end
 
   s.subspec 'FoundationEx' do |ss|
@@ -50,6 +50,14 @@ Pod::Spec.new do |s|
     ss.dependency 'FastComponent/UIKitEx'
 
     ss.dependency 'FastComponent/Base'
+  end
+
+  s.subspec 'SafariServicesEx' do |ss|
+    ss.source_files = 'SafariServicesEx/**/*.swift'
+    ss.dependency 'FastComponent/UIKitEx'
+
+    ss.dependency 'FastComponent/Base'
+    ss.frameworks = 'SafariServices'
   end
 
 
