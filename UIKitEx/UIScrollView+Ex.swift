@@ -9,91 +9,90 @@
 import UIKit
 import Then
 
-
-public extension UIScrollView{
-    var contentInset_top: CGFloat {
+public extension XXExtension where Base:UIScrollView{
+    public var inset_top: CGFloat {
         get {
-            return contentInset.top
+            return base.contentInset.top
         }
         set {
-            var _contentInset = contentInset
+            var _contentInset = base.contentInset
             _contentInset.top = newValue
-            contentInset = _contentInset
+            base.contentInset = _contentInset
         }
     }
     
-    var contentInset_left: CGFloat {
+    public var inset_left: CGFloat {
         get {
-            return contentInset.left
+            return base.contentInset.left
         }
         set {
-            var _contentInset = contentInset
+            var _contentInset = base.contentInset 
             _contentInset.left = newValue
-            contentInset = _contentInset
+            base.contentInset = _contentInset
         }
     }
-    var contentInset_bottom: CGFloat {
+    public var inset_bottom: CGFloat {
         get {
-            return contentInset.bottom
+            return base.contentInset.bottom
         }
         set {
-            var _contentInset = contentInset
+            var _contentInset = base.contentInset 
             _contentInset.bottom = newValue
-            contentInset = _contentInset
+            base.contentInset = _contentInset
         }
     }
     
-    var contentInset_right: CGFloat {
+    public var inset_right: CGFloat {
         get {
-            return contentInset.right
+            return base.contentInset.right
         }
         set {
-            var _contentInset = contentInset
+            var _contentInset = base.contentInset 
             _contentInset.right = newValue
-            contentInset = _contentInset
+            base.contentInset = _contentInset
         }
     }
     
-    var contentOffset_x: CGFloat {
+    public var offset_x: CGFloat {
         get {
-            return contentOffset.x
+            return base.contentOffset.x
         }
         set {
-            var _contentOffset = contentOffset
+            var _contentOffset = base.contentOffset
             _contentOffset.x = newValue
-            contentOffset = _contentOffset
+            base.contentOffset = _contentOffset
         }
     }
     
-    var contentOffset_y: CGFloat {
+    public var offset_y: CGFloat {
         get {
-            return contentOffset.y
+            return base.contentOffset.y
         }
         set {
-            var _contentOffset = contentOffset
+            var _contentOffset = base.contentOffset
             _contentOffset.y = newValue
-            contentOffset = _contentOffset
+            base.contentOffset = _contentOffset
         }
     }
     
-    var contentSize_width: CGFloat {
+    public var size_width: CGFloat {
         get {
-            return contentSize.width
+            return base.contentSize.width
         }
         set {
-            var _contentSize = contentSize
+            var _contentSize = base.contentSize
             _contentSize.width = newValue
-            contentSize = _contentSize
+            base.contentSize = _contentSize
         }
     }
-    var contentSize_height: CGFloat {
+    public var size_height: CGFloat {
         get {
-            return contentSize.height
+            return base.contentSize.height
         }
         set {
-            var _contentSize = contentSize
+            var _contentSize = base.contentSize
             _contentSize.height = newValue
-            contentSize = _contentSize
+            base.contentSize = _contentSize
         }
     }
 }

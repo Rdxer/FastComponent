@@ -17,15 +17,24 @@ Pod::Spec.new do |s|
 
 
   s.subspec 'Base' do |ss|
+    ss.source_files = 'Base/**/*.swift'
     ss.dependency 'Then'
     ss.dependency 'Localize-Swift'
     ss.dependency 'XXLogger'
   end
 
+  s.subspec 'ConfigEx' do |ss|
+    ss.source_files = 'ConfigEx/**/*.swift'
+    # ss.dependency 'Material'
+    # ss.dependency 'FastComponent/Base'
+    ss.dependency 'FastComponent/UIKitEx'
+    ss.dependency 'Then'
+  end
+
   s.subspec 'UIKitEx' do |ss|
     ss.source_files = 'UIKitEx/**/*.swift'
-    ss.dependency 'Material'
-    # ss.dependency 'FastComponent/Base'
+    # ss.dependency 'Material'
+    ss.dependency 'FastComponent/Base'
     ss.dependency 'Then'
   end
 
@@ -60,7 +69,37 @@ Pod::Spec.new do |s|
     ss.frameworks = 'SafariServices'
   end
 
+  s.subspec 'MaterialEx' do |ss|
+    ss.source_files = 'MaterialEx/**/*.swift'
+    ss.dependency 'Material'
+    ss.dependency 'FastComponent/UIKitEx'
+    ss.dependency 'FastComponent/ConfigEx'
+    ss.dependency 'FastComponent/Base'
+  end
 
+  s.subspec 'PullToRefreshEx' do |ss|
+    ss.source_files = 'PullToRefreshEx/**/*.swift'
+    ss.dependency 'DGElasticPullToRefresh'
+    ss.dependency 'FastComponent/UIKitEx'
+    ss.dependency 'FastComponent/ConfigEx'
+    ss.dependency 'FastComponent/Base'
+  end
+
+  s.subspec 'MoyaRESTfulEx' do |ss|
+    ss.source_files = 'MoyaRESTfulEx/**/*.swift'
+    ss.dependency 'FastComponent/Base'
+    ss.dependency 'HandyJSON'
+    ss.dependency 'SwiftyUserDefaults'
+    ss.dependency 'RxSwift'
+    ss.dependency 'Result'
+    ss.dependency 'Moya/RxSwift'
+  end
+
+  s.subspec 'RxSwiftEx' do |ss|
+    ss.source_files = 'RxSwiftEx/**/*.swift'
+    ss.dependency 'FastComponent/Base'
+    ss.dependency 'RxSwift'
+  end
 
 
 end
