@@ -73,6 +73,6 @@ public extension ResourcesTargetType{
     
     /// The type of HTTP task to be performed.
     open var task: Task {
-        return .request
+        return Task.requestPlain
     }
 }

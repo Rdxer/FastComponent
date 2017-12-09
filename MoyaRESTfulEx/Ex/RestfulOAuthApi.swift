@@ -22,6 +22,9 @@ public enum RestfulOAuthApi {
 }
 
 extension RestfulOAuthApi:TargetType{
+    public var headers: [String : String]? {
+        return [:]
+    }
     
     public var baseURL: URL {
         return URL.init(string: baseURLString)!
@@ -73,7 +76,7 @@ extension RestfulOAuthApi:TargetType{
     
     /// 执行HTTP任务的类型。
     public var task: Task {
-        return .request
+        return Task.requestPlain
     }
     
 }

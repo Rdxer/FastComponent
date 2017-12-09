@@ -21,6 +21,7 @@
   "subspecs": [
     {
       "name": "Base",
+      "source_files": "Base/**/*.swift",
       "dependencies": {
         "Then": [
 
@@ -34,13 +35,25 @@
       }
     },
     {
+      "name": "ConfigEx",
+      "source_files": "ConfigEx/**/*.swift",
+      "dependencies": {
+        "FastComponent/UIKitEx": [
+
+        ],
+        "Then": [
+
+        ]
+      }
+    },
+    {
       "name": "UIKitEx",
       "source_files": "UIKitEx/**/*.swift",
       "dependencies": {
-        "Material": [
+        "FastComponent/Base": [
 
         ],
-        "FastComponent/Base": [
+        "Then": [
 
         ]
       }
@@ -83,6 +96,91 @@
 
         ],
         "FastComponent/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "SafariServicesEx",
+      "source_files": "SafariServicesEx/**/*.swift",
+      "dependencies": {
+        "FastComponent/UIKitEx": [
+
+        ],
+        "FastComponent/Base": [
+
+        ]
+      },
+      "frameworks": "SafariServices"
+    },
+    {
+      "name": "MaterialEx",
+      "source_files": "MaterialEx/**/*.swift",
+      "dependencies": {
+        "Material": [
+
+        ],
+        "FastComponent/UIKitEx": [
+
+        ],
+        "FastComponent/ConfigEx": [
+
+        ],
+        "FastComponent/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "PullToRefreshEx",
+      "source_files": "PullToRefreshEx/**/*.swift",
+      "dependencies": {
+        "DGElasticPullToRefresh": [
+
+        ],
+        "FastComponent/UIKitEx": [
+
+        ],
+        "FastComponent/ConfigEx": [
+
+        ],
+        "FastComponent/Base": [
+
+        ]
+      }
+    },
+    {
+      "name": "MoyaRESTfulEx",
+      "source_files": "MoyaRESTfulEx/**/*.swift",
+      "dependencies": {
+        "FastComponent/Base": [
+
+        ],
+        "HandyJSON": [
+
+        ],
+        "SwiftyUserDefaults": [
+
+        ],
+        "RxSwift": [
+
+        ],
+        "Result": [
+
+        ],
+        "Moya/RxSwift": [
+
+        ]
+      }
+    },
+    {
+      "name": "RxSwiftEx",
+      "source_files": "RxSwiftEx/**/*.swift",
+      "dependencies": {
+        "FastComponent/Base": [
+
+        ],
+        "RxSwift": [
 
         ]
       }
