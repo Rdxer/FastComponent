@@ -17,8 +17,9 @@ open class XXSearchBar: UISearchBar {
     open func iOS11_configuration_ifneed(){
         
         if #available(iOS 11, *) {
-            
+           
         }else{
+            printW("XXSearchBar - 非 iOS 11 使用默认效果")
             return
         }
         
