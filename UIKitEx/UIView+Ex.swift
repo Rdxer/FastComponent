@@ -14,4 +14,11 @@ extension UIView{
             item.removeFromSuperview()
         }
     }
+    
+    open func addSubviews(_ subviews:[UIView?]){
+        for item in subviews.filter({$0 != nil}).map({$0!}) {
+            addSubview(item)
+        }
+    }
+    
 }
