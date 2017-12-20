@@ -15,10 +15,12 @@ extension UIView{
         }
     }
     
-    open func addSubviews(_ subviews:[UIView?]){
+    @discardableResult
+    open func addSubviews(_ subviews:[UIView?])->UIView{
         for item in subviews.filter({$0 != nil}).map({$0!}) {
             addSubview(item)
         }
+        return self
     }
     
 }
