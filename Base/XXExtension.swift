@@ -15,12 +15,12 @@ public final class XXExtension<Base>{
     }
 }
 
-protocol XXExtensionCompatible {
+public protocol XXExtensionCompatible {
     associatedtype CompatibleXXExtensionType
     var xx: CompatibleXXExtensionType { get }
 }
 
-extension XXExtensionCompatible {
+public extension XXExtensionCompatible {
     public var xx: XXExtension<Self> {
         get { return XXExtension(self) }
     }
