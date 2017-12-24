@@ -22,6 +22,7 @@ public extension Disposable {
 }
 
 extension NSObject:DisposeBagOwner{
+    
     open var dispose:DisposeBag {
         get {
             return xx.dispose
@@ -30,6 +31,11 @@ extension NSObject:DisposeBagOwner{
             xx.dispose = newValue
         }
     }
+
+    open func resetDisposeBag(){
+        dispose = DisposeBag.init()
+    }
+
 }
 
 
