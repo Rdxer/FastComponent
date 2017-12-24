@@ -10,14 +10,14 @@ import Foundation
 import SafariServices
 
 @available(iOS 9.0, *)
-class BaseSafariViewController: SFSafariViewController {
+open class BaseSafariViewController: SFSafariViewController {
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action:nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.barStyle = .default
     }
