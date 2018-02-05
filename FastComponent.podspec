@@ -21,6 +21,8 @@ Pod::Spec.new do |s|
     ss.dependency 'Then'
     ss.dependency 'Localize-Swift'
     ss.dependency 'XXLogger'
+
+    ss.resources    = 'FastComponent.bundle'
   end
 
   s.subspec 'ConfigEx' do |ss|
