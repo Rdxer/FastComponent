@@ -51,7 +51,7 @@ Pod::Spec.new do |s|
   s.subspec 'UICustomEx' do |ss|
     ss.source_files = 'UICustomEx/**/*.swift'
     ss.dependency 'FastComponent/UIKitEx'
-    ss.dependency 'Eureka'
+    #ss.dependency 'Eureka'
 
     ss.dependency 'FastComponent/Base'
   end

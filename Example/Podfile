@@ -2,7 +2,12 @@ use_frameworks!
 
 target 'FastComponent_Example' do
     
-  pod 'FastComponent', :subspecs => ['UIKitEx', 'FoundationEx','UICustomEx','Component'],:path => '../'
+  pod 'FastComponent', :subspecs => [
+    'UIKitEx', 
+    'FoundationEx',
+    'UICustomEx',
+    'Component'
+  ],:path => '../'
 
   pod 'XXLogger'
   pod 'Then'
