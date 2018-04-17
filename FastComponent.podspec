@@ -103,5 +103,20 @@ Pod::Spec.new do |s|
     ss.dependency 'RxSwift'
   end
 
+  s.subspec 'KingfisherEx' do |ss|
+    ss.source_files = 'KingfisherEx/**/*.swift'
+    ss.dependency 'Kingfisher'
+  end
+
+  s.subspec 'SnapKitEx' do |ss|
+    ss.source_files = 'SnapKitEx/**/*.swift'
+    ss.dependency 'SnapKit'
+  end
+  
+  s.subspec 'DeviceEx' do |ss|
+    ss.source_files = 'DeviceEx/**/*.swift'
+    ss.dependency 'Device'
+  end
+
 
 end
