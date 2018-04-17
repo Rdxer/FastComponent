@@ -17,7 +17,23 @@ FastComponent is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "FastComponent"
+  # FastComponent
+  pod 'FastComponent', :subspecs => [
+    'Base',
+    'UIKitEx',
+    'RxSwiftEx',
+    'FoundationEx',
+    'KingfisherEx',
+    'SnapKitEx',
+    'DeviceEx',
+#    'UICustomEx',
+    'Component',
+    'SafariServicesEx',
+#    'MaterialEx',
+#    'PullToRefreshEx',
+#    'ConfigEx',
+#    'MoyaRESTfulEx'
+  ],:path => 'FastComponent'
 ```
 
 ## Author
@@ -27,3 +43,5 @@ Rdxer, rdxer@foxmail.com
 ## License
 
 FastComponent is available under the MIT license. See the LICENSE file for more info.
+
+
