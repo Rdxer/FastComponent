@@ -15,10 +15,10 @@ public extension XXExtension where Base:NSObject{
     /// 附属物品  - RETAIN_NONATOMIC
     public var tag:Any? {
         get {
-            return objc_getAssociatedObject(base, &XX_Ex_Tag_Key)
+            return objc_getAssociatedObject(self, &XX_Ex_Tag_Key)
         }
         set {
-            objc_setAssociatedObject(base, &XX_Ex_Tag_Key, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &XX_Ex_Tag_Key, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 }

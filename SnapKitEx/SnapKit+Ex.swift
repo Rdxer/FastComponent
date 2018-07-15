@@ -18,18 +18,19 @@ public extension UIEdgeInsets{
     }
 }
 
-public extension UIView {
+//  view.xx.layout xx
+public extension XXExtension where Base:UIView {
     
     // MARK: -
     // MARK: - Vertical   ↓↓↓↓↓↓↓
     
     /// 垂直方向排布 subviews   ↓↓↓↓↓↓↓
-    public func xx_layoutVerticalSubviews(contentInset:UIEdgeInsets = .zero,item:UIEdgeInsets = .zero,fill:Bool = false,center:Bool = false,itemSpacing: CGFloat = 0){
-        xx_layoutVertical(views: self.subviews, contentInset: contentInset, item: item,fill:fill,center:center,itemSpacing: itemSpacing)
+    public func layoutVerticalSubviews(contentInset:UIEdgeInsets = .zero,item:UIEdgeInsets = .zero,fill:Bool = false,center:Bool = false,itemSpacing: CGFloat = 0){
+        layoutVertical(views: base.subviews, contentInset: contentInset, item: item,fill:fill,center:center,itemSpacing: itemSpacing)
     }
     
     /// 垂直方向排布 view    ↓↓↓↓↓↓↓
-    public func xx_layoutVertical(views:[UIView]? = nil,contentInset:UIEdgeInsets = .zero,item:UIEdgeInsets = .zero,fill:Bool = false,center:Bool = false,itemSpacing: CGFloat = 0){
+    public func layoutVertical(views:[UIView]? = nil,contentInset:UIEdgeInsets = .zero,item:UIEdgeInsets = .zero,fill:Bool = false,center:Bool = false,itemSpacing: CGFloat = 0){
         guard let views = views?.nilOrNotEmpty else {
             printE(" 需要布局的 view 为空!!! ")
             return
@@ -94,12 +95,12 @@ public extension UIView {
     // MARK: - Horizontal   →→→→→→→→
     
     /// 水平方向排布 subviews   →→→→→→→→
-    public func xx_layoutHorizontalSubviews(contentInset:UIEdgeInsets = .zero,item:UIEdgeInsets = .zero,fill:Bool = false,center:Bool = false,itemSpacing: CGFloat = 0){
-        xx_layoutHorizontal(views: self.subviews, contentInset: contentInset, item: item,fill:fill,center:center,itemSpacing: itemSpacing)
+    public func layoutHorizontalSubviews(contentInset:UIEdgeInsets = .zero,item:UIEdgeInsets = .zero,fill:Bool = false,center:Bool = false,itemSpacing: CGFloat = 0){
+        layoutHorizontal(views: base.subviews, contentInset: contentInset, item: item,fill:fill,center:center,itemSpacing: itemSpacing)
     }
     
     /// 水平方向排布 view  →→→→→→→→
-    public func xx_layoutHorizontal(views:[UIView]? = nil,contentInset:UIEdgeInsets = .zero,item:UIEdgeInsets = .zero,fill:Bool = false,center:Bool = false,itemSpacing: CGFloat = 0){
+    public func layoutHorizontal(views:[UIView]? = nil,contentInset:UIEdgeInsets = .zero,item:UIEdgeInsets = .zero,fill:Bool = false,center:Bool = false,itemSpacing: CGFloat = 0){
         guard let views = views?.nilOrNotEmpty else {
             printE(" 需要布局的 view 为空!!! ")
             return

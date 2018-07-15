@@ -8,12 +8,11 @@
 
 import UIKit
 
-@objc
 public extension UIButton {
     
     
     /// 设置 mormal 的 title
-    @objc public var title: String? {
+    public var title: String? {
         get{
             return title(for: .normal)
         }
@@ -23,7 +22,7 @@ public extension UIButton {
     }
     
     /// 设置 mormal 的 titleColor
-    @objc public var titleColor: UIColor? {
+    public var titleColor: UIColor? {
         get{
             return titleColor(for: .normal)
         }
@@ -33,7 +32,7 @@ public extension UIButton {
     }
     
     /// 设置
-    @objc public var titleFont: UIFont? {
+    public var titleFont: UIFont? {
         get{
             return titleLabel?.font
         }
@@ -45,7 +44,7 @@ public extension UIButton {
     
     
     /// 设置 normal image
-    @objc public var image: UIImage? {
+    public var image: UIImage? {
         get{
             return image(for: .normal)
         }
@@ -54,7 +53,7 @@ public extension UIButton {
         }
     }
     /// 设置 selected image
-    @objc public var image_selected: UIImage? {
+    public var image_selected: UIImage? {
         get{
             return image(for: .selected)
         }
@@ -63,7 +62,7 @@ public extension UIButton {
         }
     }
     /// 设置 highlighted image
-    @objc public var image_highlighted: UIImage? {
+    public var image_highlighted: UIImage? {
         get{
             return image(for: .highlighted)
         }
@@ -72,7 +71,7 @@ public extension UIButton {
         }
     }
     /// 设置图片 prefix + image_name + Suffix
-    @objc public func setImage(prefix: String? = nil,name: String, Sel selectedSuffix: String? = nil,Hl highlightSuffix: String? = nil){
+    public func setImage(prefix: String? = nil,name: String, Sel selectedSuffix: String? = nil,Hl highlightSuffix: String? = nil){
         
         var name = name
         

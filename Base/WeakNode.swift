@@ -12,11 +12,11 @@ open class WeakNodeList<T:NSObject>: NSObject {
     
 }
 
-
 public protocol WeakNodeDelegate {
     func weakNodeDidDischarge<Key>(token:Key)
 }
 
+/// 弱引用节点
 open class WeakNode<T:NSObject,Key>: NSObject {
     public weak var object:T?
     public var token:Key
@@ -53,6 +53,7 @@ protocol WeakNodeAttachDelegate {
     func weakNodeAttachDidDischarge(attach:WeakNodeAttach)
 }
 
+/// 附加对象
 open class WeakNodeAttach: NSObject {
     
     var delegate:WeakNodeAttachDelegate
@@ -68,6 +69,7 @@ open class WeakNodeAttach: NSObject {
 
 
 fileprivate var ___weakNodeAttachKey:Void?
+/// 附加到 NSObject 身上
 extension NSObject{
     var ___weakNodeAttach: WeakNodeAttach? {
         get {

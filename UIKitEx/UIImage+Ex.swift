@@ -8,8 +8,9 @@
 
 import UIKit
 
-public extension XXExtension where Base : UIImage{
+//public extension XXExtension where Base : UIImage{
+public extension UIImage{
     public func toIcon() -> UIImage{
-        return base.withRenderingMode(.alwaysTemplate)
+        return self.withRenderingMode(.alwaysTemplate)
     }
 }

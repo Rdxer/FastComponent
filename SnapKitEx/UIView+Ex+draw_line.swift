@@ -17,22 +17,22 @@ public enum XXUIViewDivider {
     case right
 }
 
-public extension UIView{
+public extension XXExtension where Base:UIView{
     @discardableResult
-    public func xx_Add(divider:XXUIViewDivider = .bottom,
+    public func add(divider:XXUIViewDivider = .bottom,
                        dividerColor:UIColor,
                        dividerWidth:CGFloat = 0.5,
                        dividerEdgeInset:UIEdgeInsets = UIEdgeInsets.zero)->UIView{
         
-        var dividerView = xx_DividerViewList[divider.hashValue]
+        var dividerView = dividerViewList[divider.hashValue]
         if nil == dividerView {
             dividerView = UIView.init()
-            xx_DividerViewList[divider.hashValue] = dividerView
+            dividerViewList[divider.hashValue] = dividerView
         }
         
         dividerView?.backgroundColor = dividerColor
         
-        addSubview(dividerView!)
+        base.addSubview(dividerView!)
         
         switch divider {
         case .top:
@@ -80,21 +80,21 @@ public extension UIView{
         return dividerView!
     }
     
-    public func xx_Add(dividerList:[XXUIViewDivider],dividerColorList:[UIColor],dividerWidthList:[CGFloat]){
+    public func add(dividerList:[XXUIViewDivider],dividerColorList:[UIColor],dividerWidthList:[CGFloat]){
         for index in 0..<dividerList.count {
-            xx_Add(divider: dividerList[index], dividerColor: dividerColorList[index],dividerWidth: dividerWidthList[index])
+            add(divider: dividerList[index], dividerColor: dividerColorList[index],dividerWidth: dividerWidthList[index])
         }
     }
-    public func xx_Add(dividerList:[XXUIViewDivider],
+    public func add(dividerList:[XXUIViewDivider],
                        dividerColor:UIColor = UIColor.gray,
                        dividerWidth:CGFloat = 0.5){
         for index in 0..<dividerList.count {
-            xx_Add(divider: dividerList[index], dividerColor: dividerColor,dividerWidth:dividerWidth)
+            add(divider: dividerList[index], dividerColor: dividerColor,dividerWidth:dividerWidth)
         }
     }
-    public func xx_remove(dividerList:[XXUIViewDivider]){
+    public func remove(dividerList:[XXUIViewDivider]){
         for item in dividerList {
-            let view = xx_DividerViewList[item.hashValue]
+            let view = dividerViewList[item.hashValue]
             view?.removeFromSuperview()
         }
     }
@@ -103,13 +103,13 @@ public extension UIView{
 /// 存储所用
 private var _XXUIViewDividerKey: Void?
 
-public extension UIView{
-    public var xx_DividerViewList: [Int:UIView] {
+public extension XXExtension where Base:UIView{
+    public var dividerViewList: [Int:UIView] {
         get {
             var list = objc_getAssociatedObject(self, &_XXUIViewDividerKey) as? [Int:UIView]
             if list == nil{
                 list = [:]
-                self.xx_DividerViewList = list!
+                dividerViewList = list!
             }
             return list!
         }
