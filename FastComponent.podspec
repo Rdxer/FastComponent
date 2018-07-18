@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
     ss.source_files = 'Base/**/*.swift'
     ss.dependency 'Then'
     ss.dependency 'Localize-Swift'
-    ss.dependency 'XXLogger'
+#    ss.dependency 'XXLogger'
 
     ss.resources    = 'FastComponent.bundle'
   end
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.subspec 'ConfigEx' do |ss|
     ss.source_files = 'ConfigEx/**/*.swift'
     # ss.dependency 'Material'
-    # ss.dependency 'FastComponent/Base'
+    ss.dependency 'FastComponent/Base'
     ss.dependency 'FastComponent/UIKitEx'
     ss.dependency 'Then'
   end
@@ -44,7 +44,6 @@ Pod::Spec.new do |s|
     ss.source_files = 'FoundationEx/**/*.swift'
     ss.dependency 'SwiftyJSON'
     ss.dependency 'AsyncSwift'
-
     ss.dependency 'FastComponent/Base'
   end
 

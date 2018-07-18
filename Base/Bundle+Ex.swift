@@ -21,7 +21,7 @@ extension Bundle{
         }
         
         if suburl == nil {
-            let bundle = Bundle.init(for: WeakNodeAttach.self)
+            let bundle = Bundle.init(for: XXWeakNodeAttach.self)
             suburl = bundle.url(forResource: name, withExtension: "bundle")
             cacheBundlePath[name] = suburl
         }

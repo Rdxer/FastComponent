@@ -8,27 +8,27 @@
 
 import Foundation
 
-open class WeakNodeList<T:NSObject>: NSObject {
+open class XXWeakNodeList<T:NSObject>: NSObject {
     
 }
 
-public protocol WeakNodeDelegate {
+public protocol XXWeakNodeDelegate {
     func weakNodeDidDischarge<Key>(token:Key)
 }
 
 /// 弱引用节点
-open class WeakNode<T:NSObject,Key>: NSObject {
+open class XXWeakNode<T:NSObject,Key>: NSObject {
     public weak var object:T?
     public var token:Key
-    public var delegate:WeakNodeDelegate?
+    public var delegate:XXWeakNodeDelegate?
     public var receivedWeakNodeDischarge:((_ token:Key)->Void)?
     
-    public init(object:T,token:Key,delegate:WeakNodeDelegate?) {
+    public init(object:T,token:Key,delegate:XXWeakNodeDelegate?) {
         self.object = object
         self.token = token
         self.delegate = delegate
         super.init()
-        self.object?.___weakNodeAttach = WeakNodeAttach.init(delegate: self)
+        self.object?.___weakNodeAttach = XXWeakNodeAttach.init(delegate: self)
     }
     
     public init(object:T,token:Key,receivedWeakNodeDischarge:((_ token:Key)->Void)?) {
@@ -36,29 +36,29 @@ open class WeakNode<T:NSObject,Key>: NSObject {
         self.token = token
         self.receivedWeakNodeDischarge = receivedWeakNodeDischarge
         super.init()
-        self.object?.___weakNodeAttach = WeakNodeAttach.init(delegate: self)
+        self.object?.___weakNodeAttach = XXWeakNodeAttach.init(delegate: self)
     }
     
 }
 
-extension WeakNode:WeakNodeAttachDelegate{
-    func weakNodeAttachDidDischarge(attach: WeakNodeAttach) {
+extension XXWeakNode:XXWeakNodeAttachDelegate{
+    func weakNodeAttachDidDischarge(attach: XXWeakNodeAttach) {
         delegate?.weakNodeDidDischarge(token: token)
         receivedWeakNodeDischarge?(token)
     }
 }
 
 
-protocol WeakNodeAttachDelegate {
-    func weakNodeAttachDidDischarge(attach:WeakNodeAttach)
+protocol XXWeakNodeAttachDelegate {
+    func weakNodeAttachDidDischarge(attach:XXWeakNodeAttach)
 }
 
 /// 附加对象
-open class WeakNodeAttach: NSObject {
+open class XXWeakNodeAttach: NSObject {
     
-    var delegate:WeakNodeAttachDelegate
+    var delegate:XXWeakNodeAttachDelegate
     
-    init(delegate:WeakNodeAttachDelegate) {
+    init(delegate:XXWeakNodeAttachDelegate) {
         self.delegate = delegate
     }
     
@@ -71,9 +71,9 @@ open class WeakNodeAttach: NSObject {
 fileprivate var ___weakNodeAttachKey:Void?
 /// 附加到 NSObject 身上
 extension NSObject{
-    var ___weakNodeAttach: WeakNodeAttach? {
+    var ___weakNodeAttach: XXWeakNodeAttach? {
         get {
-            return objc_getAssociatedObject(self, &___weakNodeAttachKey) as? WeakNodeAttach
+            return objc_getAssociatedObject(self, &___weakNodeAttachKey) as? XXWeakNodeAttach
         }
         set {
             objc_setAssociatedObject(self, &___weakNodeAttachKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)

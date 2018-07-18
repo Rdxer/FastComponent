@@ -9,7 +9,6 @@
 
 import UIKit
 import SnapKit
-import XXLogger
 import FastComponent
 
 public extension UIEdgeInsets{
@@ -32,7 +31,7 @@ public extension XXExtension where Base:UIView {
     /// 垂直方向排布 view    ↓↓↓↓↓↓↓
     public func layoutVertical(views:[UIView]? = nil,contentInset:UIEdgeInsets = .zero,item:UIEdgeInsets = .zero,fill:Bool = false,center:Bool = false,itemSpacing: CGFloat = 0){
         guard let views = views?.nilOrNotEmpty else {
-            printE(" 需要布局的 view 为空!!! ")
+            XXLoger.e(" 需要布局的 view 为空!!! ")
             return
         }
         
@@ -102,7 +101,7 @@ public extension XXExtension where Base:UIView {
     /// 水平方向排布 view  →→→→→→→→
     public func layoutHorizontal(views:[UIView]? = nil,contentInset:UIEdgeInsets = .zero,item:UIEdgeInsets = .zero,fill:Bool = false,center:Bool = false,itemSpacing: CGFloat = 0){
         guard let views = views?.nilOrNotEmpty else {
-            printE(" 需要布局的 view 为空!!! ")
+            XXLoger.e(" 需要布局的 view 为空!!! ")
             return
         }
         

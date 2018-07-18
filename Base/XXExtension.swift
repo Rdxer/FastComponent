@@ -10,13 +10,13 @@ import UIKit
 
 public final class XXExtension<Base>{
     public let base: Base
-    public var subscibedeInit:((Base,XXExtension<Base>)->Void)?
+    public var subscibeDeInit:((Base,XXExtension<Base>)->Void)?
     public init(_ base: Base) {
         self.base = base
     }
     
     deinit {
-        subscibedeInit?(base,self)
+        subscibeDeInit?(base,self)
     }
 }
 

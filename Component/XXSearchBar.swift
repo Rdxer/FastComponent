@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import XXLogger
 
 /// iOS11 图标/占位符 居中的SearchBar
 open class XXSearchBar: UISearchBar {
@@ -19,11 +18,11 @@ open class XXSearchBar: UISearchBar {
         if #available(iOS 11, *) {
            
         }else{
-            printW("XXSearchBar - 非 iOS 11 使用默认效果")
+            XXLoger.w("XXSearchBar - 非 iOS 11 使用默认效果")
             return
         }
         
-        printW("XXSearchBar - iOS11_configuration")
+        XXLoger.w("XXSearchBar - iOS11_configuration")
         
         self.textFieldList
             .forEach { (textField) in
@@ -64,7 +63,7 @@ open class XXSearchBar: UISearchBar {
 // MARK: - 动画
 extension XXSearchBar:UITextFieldDelegate{
     open func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        printW("XXSearchBar - textFieldShouldBeginEditing")
+        XXLoger.w("XXSearchBar - textFieldShouldBeginEditing")
         let res = self.delegate?.searchBarShouldBeginEditing?(self) ?? true
         
         if res,text?.length == 0{
@@ -79,7 +78,7 @@ extension XXSearchBar:UITextFieldDelegate{
         return res
     }
     open func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        printW("XXSearchBar - textFieldShouldEndEditing")
+        XXLoger.w("XXSearchBar - textFieldShouldEndEditing")
         let res = self.delegate?.searchBarShouldBeginEditing?(self) ?? true
         
         if res,text?.length == 0{

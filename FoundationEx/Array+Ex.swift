@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import XXLogger
 
 
 extension Array{
@@ -18,7 +17,7 @@ extension Array{
             let res = try JSONSerialization.data(withJSONObject: self, options: [])
             return String.init(data: res, encoding: .utf8)
         } catch {
-            printE("toJsonString 失败 >>\(self) >> \(error)")
+            ("toJsonString 失败 >>\(self) >> \(error)")
             return nil
         }
     }
