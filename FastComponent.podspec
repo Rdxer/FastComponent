@@ -86,6 +86,17 @@ Pod::Spec.new do |s|
     ss.dependency 'FastComponent/Base'
   end
 
+s.subspec 'MoyaEx' do |ss|
+    ss.source_files = 'MoyaEx/**/*.swift'
+    ss.dependency 'FastComponent/Base'
+    ss.dependency 'HandyJSON'
+    ss.dependency 'SwiftyUserDefaults'
+    ss.dependency 'RxSwift'
+    ss.dependency 'Result'
+    ss.dependency 'Moya'
+    ss.dependency 'Moya/RxSwift'
+end
+
   s.subspec 'MoyaRESTfulEx' do |ss|
     ss.source_files = 'MoyaRESTfulEx/**/*.swift'
     ss.dependency 'FastComponent/Base'
