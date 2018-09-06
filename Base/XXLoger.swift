@@ -33,15 +33,19 @@ extension XXLogerTagLevel:CustomStringConvertible{
     }
 }
 
-public class XXLoger {
+open class XXLoger {
     
-    public static var defaultLoger = XXLoger.init()
+    open static var defaultLoger = XXLoger.init()
     
     /// 默认 log 级别 = LogTagLevel.d
-    public var defaultLogLevel = XXLogerTagLevel.d
+    open var defaultLogLevel = XXLogerTagLevel.d
+    
+    public init() {
+        
+    }
     
     /// 打印一般打印信息
-    public func d<T>(_ message: T,
+    open func d<T>(_ message: T,
                           level: XXLogerTagLevel = .d,
                           file: String = #file,
                           method: String = #function,
@@ -55,7 +59,7 @@ public class XXLoger {
     }
     
     /// 打印警告信息
-    public func w<T>(_ message: T,
+    open func w<T>(_ message: T,
                           level: XXLogerTagLevel = .w,
                           file: String = #file,
                           method: String = #function,
@@ -67,7 +71,7 @@ public class XXLoger {
                line: line)
     }
     /// 打印错误信息
-    public func e<T>(_ message: T,
+    open func e<T>(_ message: T,
                           level: XXLogerTagLevel = .e,
                           file: String = #file,
                           method: String = #function,
@@ -86,7 +90,7 @@ public class XXLoger {
     /// - parameter file:    文件路径
     /// - parameter method:  方法名
     /// - parameter line:    代码行数
-    fileprivate func log<T>(_ message: T,
+    open func log<T>(_ message: T,
                            level: XXLogerTagLevel = .d,
                            file: String ,
                            method: String ,
