@@ -127,6 +127,12 @@ end
     ss.source_files = 'DeviceEx/**/*.swift'
     ss.dependency 'Device'
   end
-
+  
+  
+  s.subspec 'GRDBEx' do |ss|
+      ss.source_files = 'GRDBEx/**/*.swift'
+      ss.dependency 'FastComponent/Base'
+      ss.dependency 'GRDB.swift'
+  end
 
 end
