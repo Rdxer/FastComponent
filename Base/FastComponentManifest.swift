@@ -8,6 +8,6 @@
 import Foundation
 
 
-let FastComponentBundle = "FastComponent"
+public let FastComponentBundle = "FastComponent"
 
 
