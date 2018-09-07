@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// public extension XXExtension where Base:UITextField{}
 public final class XXExtension<Base>{
     public let base: Base
     public var subscibeDeInit:((Base,XXExtension<Base>)->Void)?

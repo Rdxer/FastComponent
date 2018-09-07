@@ -24,3 +24,56 @@ extension UIView{
     }
     
 }
+
+
+public extension XXExtension where Base:UIView{
+    
+    var height:CGFloat{
+        get{
+            return base.frame.height
+        }
+        set{
+            var frame = base.frame
+            frame.size.height = newValue
+            base.frame = frame
+        }
+    }
+    var width:CGFloat{
+        get{
+            return base.frame.width
+        }
+        set{
+            var frame = base.frame
+            frame.size.width = newValue
+            base.frame = frame
+        }
+    }
+    
+    var x:CGFloat{
+        get{
+            return base.frame.origin.x
+        }
+        set{
+            var frame = base.frame
+            frame.origin.x = newValue
+            base.frame = frame
+        }
+    }
+    
+    var y:CGFloat{
+        get{
+            return base.frame.origin.y
+        }
+        set{
+            var frame = base.frame
+            frame.origin.y = newValue
+            base.frame = frame
+        }
+    }
+    
+    var frame:CGRect{
+        get{
+            return base.frame
+        }
+    }
+}
