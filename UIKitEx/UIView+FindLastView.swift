@@ -11,6 +11,26 @@ import UIKit
 /// 方便布局
 public extension UIView {
 
+    /// 从 superview 找到自己的前面的 view
+    public func previousView(number:Int = 1)->UIView?{
+        if let sv = superview {
+            if let index = sv.subviews.index(of: self){
+                return sv.subviews.safe(index: index-number)
+            }
+        }
+        return nil
+    }
+    
+    /// 从 superview 找到自己的后面的 view
+    public func nextView(number:Int = 1)->UIView?{
+        if let sv = superview {
+            if let index = sv.subviews.index(of: self){
+                return sv.subviews.safe(index: index+number)
+            }
+        }
+        return nil
+    }
+    
     /// 从 superview 找到自己的上一个 view
     public var lastView:UIView?{
         if let sv = superview {
