@@ -16,8 +16,10 @@ public protocol DisposeBagOwner {
 }
 
 public extension Disposable {
-    public func disposed(by bag: DisposeBagOwner) {
-        disposed(by: bag.dispose)
+    public func disposed(by bag: DisposeBagOwner?) {
+        if let bagdispose = bag?.dispose {
+            disposed(by: bagdispose)
+        }
     }
 }
 
