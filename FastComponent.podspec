@@ -136,5 +136,11 @@ end
       ss.dependency 'FastComponent/Base'
       ss.dependency 'GRDB.swift'
   end
+  
+  s.subspec 'DeviceUniqueIdentifierEx' do |ss|
+      ss.source_files = 'DeviceUniqueIdentifierEx/**/*.swift'
+      ss.dependency 'FastComponent/Base'
+      ss.dependency 'SAMKeychain'
+  end
 
 end
