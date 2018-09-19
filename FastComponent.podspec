@@ -67,6 +67,8 @@ Pod::Spec.new do |s|
     ss.dependency 'FastComponent/UIKitEx'
 
     ss.dependency 'FastComponent/Base'
+    ss.dependency 'FastComponent/SnapKitEx'
+    
     ss.frameworks = 'SafariServices'
   end
 

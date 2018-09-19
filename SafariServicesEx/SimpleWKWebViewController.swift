@@ -8,7 +8,8 @@
 
 import UIKit
 import WebKit
-
+import SnapKit
+import FastComponent
 
 open class SimpleWKWebViewController: UIViewController {
 
@@ -29,8 +30,11 @@ open class SimpleWKWebViewController: UIViewController {
         clearCache()
         
         webView.frame = view.bounds
-        
         view.addSubview(webView)
+        
+        webView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
         
         webView.load(request ?? URLRequest.init(url: url!, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalCacheData, timeoutInterval: 20))
         
@@ -46,19 +50,18 @@ open class SimpleWKWebViewController: UIViewController {
             .addSubview(progressView)
         
         
-        
-        var barButton:UIBarButtonItem?
-        
         if let backImage = backImage {
-            barButton = UIBarButtonItem.init(image: backImage, style: .done, target: self, action: #selector(backItemPressed))
+            goBackBarButton = UIBarButtonItem.init(image: backImage, style: .done, target: self, action: #selector(backItemPressed))
         }else{
             let image =  FastComponentBundle.imageWithSelf(name: "nav_bar_back_icon")
-            barButton = UIBarButtonItem.init(image: image, style: .done, target: self, action: #selector(backItemPressed))
+            goBackBarButton = UIBarButtonItem.init(image: image, style: .done, target: self, action: #selector(backItemPressed))
         }
         
-        self.navigationItem.leftBarButtonItem = barButton
+        self.navigationItem.leftBarButtonItem = goBackBarButton
     }
-
+    
+    var goBackBarButton:UIBarButtonItem?
+    
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if hidesBarsOnSwipe {
@@ -90,9 +93,11 @@ open class SimpleWKWebViewController: UIViewController {
         }
     }
     
+    open var wkwebview_preferredStatusBarStyle: UIStatusBarStyle = .default
+    
     open override var preferredStatusBarStyle: UIStatusBarStyle{
         get{
-            return .lightContent
+            return wkwebview_preferredStatusBarStyle
         }
     }
     
@@ -115,11 +120,18 @@ extension SimpleWKWebViewController:WKUIDelegate,WKNavigationDelegate{
     open func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         progressView.setProgress(0.0, animated: false)
         self.navigationItem.title = title ?? webView.title
+        
+        
     }
     
     public func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
         webView.reload()
     }
+    
+    public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        
+    }
+    
     func clearCache() -> Void {
         URLCache.shared.removeAllCachedResponses();
         URLCache.shared.diskCapacity = 0;
