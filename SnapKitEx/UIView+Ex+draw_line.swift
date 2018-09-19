@@ -106,7 +106,7 @@ private var _XXUIViewDividerKey: Void?
 public extension XXExtension where Base:UIView{
     public var dividerViewList: [Int:UIView] {
         get {
-            var list = objc_getAssociatedObject(self, &_XXUIViewDividerKey) as? [Int:UIView]
+            var list = objc_getAssociatedObject(self.base, &_XXUIViewDividerKey) as? [Int:UIView]
             if list == nil{
                 list = [:]
                 dividerViewList = list!
@@ -114,7 +114,7 @@ public extension XXExtension where Base:UIView{
             return list!
         }
         set {
-            objc_setAssociatedObject(self, &_XXUIViewDividerKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self.base, &_XXUIViewDividerKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 }

@@ -44,7 +44,7 @@ public extension XXExtension where Base:NSObject{
     
     public var dispose:DisposeBag {
         get {
-            if let value = objc_getAssociatedObject(self, &XXDisposableKey) as? DisposeBag{
+            if let value = objc_getAssociatedObject(self.base, &XXDisposableKey) as? DisposeBag{
                 return value
             }
             let value = DisposeBag.init()
@@ -52,7 +52,7 @@ public extension XXExtension where Base:NSObject{
             return value
         }
         set {
-            objc_setAssociatedObject(self, &XXDisposableKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self.base, &XXDisposableKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     

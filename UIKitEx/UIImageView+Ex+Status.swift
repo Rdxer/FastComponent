@@ -52,7 +52,7 @@ public extension XXExtension where Base:UIImageView{
     public var statusImageMap:[UInt:UIImage?]? {
         get {
             
-            var list = objc_getAssociatedObject(self, &XX_Ex_ImageView_Status_Image_List_Key) as? [UInt : UIImage?]
+            var list = objc_getAssociatedObject(self.base, &XX_Ex_ImageView_Status_Image_List_Key) as? [UInt : UIImage?]
             
             if list == nil {
                 list = [:]
@@ -61,7 +61,7 @@ public extension XXExtension where Base:UIImageView{
             return list
         }
         set {
-            objc_setAssociatedObject(self, &XX_Ex_ImageView_Status_Image_List_Key, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self.base, &XX_Ex_ImageView_Status_Image_List_Key, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
