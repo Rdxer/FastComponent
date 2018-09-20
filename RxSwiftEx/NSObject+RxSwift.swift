@@ -12,7 +12,7 @@ import RxSwift
 
 
 public protocol DisposeBagOwner {
-    var dispose:DisposeBag {get set}
+    var dispose:DisposeBag {get}
 }
 
 public extension Disposable {
@@ -29,20 +29,18 @@ extension NSObject:DisposeBagOwner{
         get {
             return xx.dispose
         }
-        set {
-            xx.dispose = newValue
-        }
     }
 
     open func resetDisposeBag(){
-        dispose = DisposeBag.init()
+        xx.dispose = DisposeBag.init()
     }
 }
 
 private var XXDisposableKey: Void?
+private var XXDisposableKey_fixed_dispose: Void?
 public extension XXExtension where Base:NSObject{
     
-    public var dispose:DisposeBag {
+    public fileprivate(set) var dispose:DisposeBag {
         get {
             if let value = objc_getAssociatedObject(self.base, &XXDisposableKey) as? DisposeBag{
                 return value
@@ -56,4 +54,17 @@ public extension XXExtension where Base:NSObject{
         }
     }
     
+    public fileprivate(set) var fixed_dispose:DisposeBag {
+        get {
+            if let value = objc_getAssociatedObject(self.base, &XXDisposableKey_fixed_dispose) as? DisposeBag{
+                return value
+            }
+            let value = DisposeBag.init()
+            self.fixed_dispose = value
+            return value
+        }
+        set {
+            objc_setAssociatedObject(self.base, &XXDisposableKey_fixed_dispose, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
 }

@@ -46,6 +46,7 @@ open class SimpleWKWebViewController: UIViewController {
         progressView = UIProgressView(frame: CGRect(x: 0, y: 44-2, width: UIScreen.main.bounds.size.width, height: 2))
         progressView.trackTintColor = UIColor.white
         progressView.progressTintColor = UIColor.orange
+        
         self.navigationController?.navigationBar
             .addSubview(progressView)
         
