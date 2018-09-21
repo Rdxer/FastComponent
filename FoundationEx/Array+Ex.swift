@@ -101,7 +101,10 @@ extension Array{
     }
 
     /// 安全删除
-    public mutating func remove_safe(at element:Element) -> Int? {
+    public mutating func remove_safe(at element:Element?) -> Int? {
+        guard let element = element else {
+            return nil
+        }
         if let index = index_xx(of: element) {
             _ = remove(at: index)
             return index

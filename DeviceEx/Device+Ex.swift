@@ -12,7 +12,7 @@ import Device
 public extension Device{
     /// iPhone*
     public static var deviceTypeShowString:String{
-        return Device.version().rawValue
+        return "\(Device.version())"
     }
 }
 

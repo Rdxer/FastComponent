@@ -127,7 +127,7 @@ end
   
   s.subspec 'DeviceEx' do |ss|
     ss.source_files = 'DeviceEx/**/*.swift'
-    ss.dependency 'Device'
+    ss.dependency 'Device' #, :git => 'https://github.com/Rdxer/Device.git'
   end
   
   
