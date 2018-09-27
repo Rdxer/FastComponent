@@ -14,8 +14,13 @@ public extension UINavigationController{
     }
 }
 public extension UIViewController{
-    open func pushViewControllerFromSelfNVC(vc viewController: UIViewController) {
-        self.navigationController?.pushViewController(viewController, animated: true)
+    open func pushViewControllerFromSelfNVC(vc viewController: UIViewController?) {
+        if let viewController = viewController {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }else{
+            assertionFailure("viewController 不能为空")
+        }
+        
     }
 }
 
