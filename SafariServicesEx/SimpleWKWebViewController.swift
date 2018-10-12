@@ -27,8 +27,6 @@ open class SimpleWKWebViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         
-        clearCache()
-        
         webView.frame = view.bounds
         view.addSubview(webView)
         
