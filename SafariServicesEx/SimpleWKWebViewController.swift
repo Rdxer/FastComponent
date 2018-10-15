@@ -11,14 +11,16 @@ import WebKit
 import SnapKit
 import FastComponent
 
+
 open class SimpleWKWebViewController: UIViewController {
 
     open var url:URL?
     open var hidesBarsOnSwipe = false
     open var request:URLRequest?
-    open var webView:WKWebView?//  = WKWebView.init()
+    open var webView:WKWebView? = WKWebView.init()
     open var progressView:UIProgressView?
     open var nController:UINavigationController?
+    open var webViewEdgesEqSuperV = true
     
     /// let image =  FastComponentBundle.imageWithSelf(name: "nav_bar_back_icon")
     open var backImage:UIImage?
@@ -27,12 +29,18 @@ open class SimpleWKWebViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         
-        webView = WKWebView.init(frame: view.bounds)
+//        webView = WKWebView.init(frame: view.bounds)
         
         view.addSubview(webView!)
         
         webView?.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+            if webViewEdgesEqSuperV {
+                make.edges.equalToSuperview()
+            }else{
+                make.left.right.equalToSuperview()
+                make.top.equalTo(topLayoutGuide.snp.bottom)
+                make.bottom.equalTo(bottomLayoutGuide.snp.top)
+            }
         }
         
         webView?.load(request ?? URLRequest.init(url: url!, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalCacheData, timeoutInterval: 20))
