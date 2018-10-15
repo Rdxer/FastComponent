@@ -133,26 +133,58 @@ open class SimpleWKWebViewController: UIViewController {
     }
 }
 
-extension SimpleWKWebViewController:WKUIDelegate,WKNavigationDelegate{
+extension SimpleWKWebViewController:WKNavigationDelegate{
     open func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         progressView?.setProgress(0.0, animated: false)
         self.navigationItem.title = title ?? webView.title
-        
-        
     }
     
     public func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
         webView.reload()
     }
-    
-    public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+
+}
+
+extension SimpleWKWebViewController:WKUIDelegate{
+    public func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         
+        let alert = UIAlertController.init(title: "提示", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction.init(title: "确认", style: UIAlertActionStyle.default, handler: { (ac) in
+            completionHandler()
+        }))
+        self.present(alertVC: alert, sourceView: webView)
     }
     
-    func clearCache() -> Void {
-        URLCache.shared.removeAllCachedResponses();
-        URLCache.shared.diskCapacity = 0;
-        URLCache.shared.memoryCapacity = 0;
+    public func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+        
+        let alert = UIAlertController.init(title: "提示", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        
+        alert.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.default, handler: { (ac) in
+            completionHandler(false)
+        }))
+        
+        
+        alert.addAction(UIAlertAction.init(title: "确认", style: UIAlertActionStyle.default, handler: { (ac) in
+            completionHandler(true)
+        }))
+        
+      
+        self.present(alertVC: alert, sourceView: webView)
+    }
+    
+    public func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
+        let alert = UIAlertController.init(title: prompt, message: "", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addTextField { (tf) in
+            tf.text = defaultText
+        }
+        
+        alert.addAction(UIAlertAction.init(title: "确认", style: UIAlertActionStyle.default, handler: { [weak alert](ac) in
+            completionHandler(alert?.textFields?.safe(index: 0)?.text ?? "");
+        }))
+        
+        self.present(alertVC: alert, sourceView: webView)
     }
 }
 
