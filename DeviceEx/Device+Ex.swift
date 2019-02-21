@@ -18,7 +18,7 @@ public extension Device{
 
 public extension Bundle{
     
-    ///    Bundle.main.infoDictionary["CFBundleShortVersionString"] >> "1.0"
+    ///    Bundle.main.infoDictionary["CFBundleShortVersionString"] >> "1.0.1"
     public var BundleShortVersionString:String{
         return (infoDictionary?["CFBundleShortVersionString"] as? String)  ?? ""
     }
